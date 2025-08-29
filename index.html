@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <title>商品購入ページ</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      margin: 20px;
+      background: #f7fafc;
+      color: #1e293b;
+    }
+    h1 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+    .card-body {
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .name {
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    .price {
+      font-size: 0.95rem;
+      color: #475569;
+    }
+    .qty-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    select {
+      padding: 4px 6px;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+    }
+    .subtotal {
+      text-align: right;
+      font-weight: 600;
+      color: #334155;
+    }
+    .total-box {
+      margin-top: 24px;
+      font-size: 1.2rem;
+      text-align: right;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>商品一覧</h1>
+  <div class="products" id="products">
+    <!-- 商品カード1 -->
+    <div class="card item-row">
+      <img src="https://via.placeholder.com/300x160?text=商品A" alt="商品A">
+      <div class="card-body">
+        <div class="name">商品A</div>
+        <div class="price" data-price="1200">単価: ¥1,200</div>
+        <div class="qty-row">
+          <label>数量:
+            <select class="qty">
+              <option>0</option><option>1</option><option>2</option><option>3</option>
+              <option>4</option><option>5</option><option>6</option><option>7</option>
+              <option>8</option><option>9</option><option>10</option>
+            </select>
+          </label>
+          <div class="subtotal">小計: ¥0</div>
+        </div>
+      </div>
+    </div>
+    <!-- 商品カード2 -->
+    <div class="card item-row">
+      <img src="https://via.placeholder.com/300x160?text=商品B" alt="商品B">
+      <div class="card-body">
+        <div class="name">商品B</div>
+        <div class="price" data-price="450">単価: ¥450</div>
+        <div class="qty-row">
+          <label>数量:
+            <select class="qty">
+              <option>0</option><option>1</option><option>2</option><option>3</option>
+              <option>4</option><option>5</option><option>6</option><option>7</option>
+              <option>8</option><option>9</option><option>10</option>
+            </select>
+          </label>
+          <div class="subtotal">小計: ¥0</div>
+        </div>
+      </div>
+    </div>
+    <!-- 商品カード3 -->
+    <div class="card item-row">
+      <img src="https://via.placeholder.com/300x160?text=商品C" alt="商品C">
+      <div class="card-body">
+        <div class="name">商品C</div>
+        <div class="price" data-price="800">単価: ¥800</div>
+        <div class="qty-row">
+          <label>数量:
+            <select class="qty">
+              <option>0</option><option>1</option><option>2</option><option>3</option>
+              <option>4</option><option>5</option><option>6</option><option>7</option>
+              <option>8</option><option>9</option><option>10</option>
+            </select>
+          </label>
+          <div class="subtotal">小計: ¥0</div>
+        </div>
+      </div>
+    </div>
+    <!-- 商品カード1 -->
+    <div class="card item-row">
+      <img src="https://via.placeholder.com/300x160?text=商品A" alt="商品A">
+      <div class="card-body">
+        <div class="name">商品A</div>
+        <div class="price" data-price="1200">単価: ¥1,200</div>
+        <div class="qty-row">
+          <label>数量:
+            <select class="qty">
+              <option>0</option><option>1</option><option>2</option><option>3</option>
+              <option>4</option><option>5</option><option>6</option><option>7</option>
+              <option>8</option><option>9</option><option>10</option>
+            </select>
+          </label>
+          <div class="subtotal">小計: ¥0</div>
+        </div>
+      </div>
+    </div>
+    <!-- 商品カード2 -->
+    <div class="card item-row">
+      <img src="https://via.placeholder.com/300x160?text=商品B" alt="商品B">
+      <div class="card-body">
+        <div class="name">商品B</div>
+        <div class="price" data-price="450">単価: ¥450</div>
+        <div class="qty-row">
+          <label>数量:
+            <select class="qty">
+              <option>0</option><option>1</option><option>2</option><option>3</option>
+              <option>4</option><option>5</option><option>6</option><option>7</option>
+              <option>8</option><option>9</option><option>10</option>
+            </select>
+          </label>
+          <div class="subtotal">小計: ¥0</div>
+        </div>
+      </div>
+    </div>
+    <!-- 商品カード3 -->
+    <div class="card item-row">
+      <img src="https://via.placeholder.com/300x160?text=商品C" alt="商品C">
+      <div class="card-body">
+        <div class="name">商品C</div>
+        <div class="price" data-price="800">単価: ¥800</div>
+        <div class="qty-row">
+          <label>数量:
+            <select class="qty">
+              <option>0</option><option>1</option><option>2</option><option>3</option>
+              <option>4</option><option>5</option><option>6</option><option>7</option>
+              <option>8</option><option>9</option><option>10</option>
+            </select>
+          </label>
+          <div class="subtotal">小計: ¥0</div>
+        </div>
+      </div>
+    </div>
+    <!-- 商品カード1 -->
+    <div class="card item-row">
+      <img src="https://via.placeholder.com/300x160?text=商品A" alt="商品A">
+      <div class="card-body">
+        <div class="name">商品A</div>
+        <div class="price" data-price="1200">単価: ¥1,200</div>
+        <div class="qty-row">
+          <label>数量:
+            <select class="qty">
+              <option>0</option><option>1</option><option>2</option><option>3</option>
+              <option>4</option><option>5</option><option>6</option><option>7</option>
+              <option>8</option><option>9</option><option>10</option>
+            </select>
+          </label>
+          <div class="subtotal">小計: ¥0</div>
+        </div>
+      </div>
+    </div>
+    <!-- 商品カード2 -->
+    <div class="card item-row">
+      <img src="https://via.placeholder.com/300x160?text=商品B" alt="商品B">
+      <div class="card-body">
+        <div class="name">商品B</div>
+        <div class="price" data-price="450">単価: ¥450</div>
+        <div class="qty-row">
+          <label>数量:
+            <select class="qty">
+              <option>0</option><option>1</option><option>2</option><option>3</option>
+              <option>4</option><option>5</option><option>6</option><option>7</option>
+              <option>8</option><option>9</option><option>10</option>
+            </select>
+          </label>
+          <div class="subtotal">小計: ¥0</div>
+        </div>
+      </div>
+    </div>
+    <!-- 商品カード3 -->
+    <div class="card item-row">
+      <img src="https://via.placeholder.com/300x160?text=商品C" alt="商品C">
+      <div class="card-body">
+        <div class="name">商品C</div>
+        <div class="price" data-price="800">単価: ¥800</div>
+        <div class="qty-row">
+          <label>数量:
+            <select class="qty">
+              <option>0</option><option>1</option><option>2</option><option>3</option>
+              <option>4</option><option>5</option><option>6</option><option>7</option>
+              <option>8</option><option>9</option><option>10</option>
+            </select>
+          </label>
+          <div class="subtotal">小計: ¥0</div>
+        </div>
+      </div>
+    </div>
+    <!-- 商品カード1 -->
+    <div class="card item-row">
+      <img src="https://via.placeholder.com/300x160?text=商品A" alt="商品A">
+      <div class="card-body">
+        <div class="name">商品A</div>
+        <div class="price" data-price="1200">単価: ¥1,200</div>
+        <div class="qty-row">
+          <label>数量:
+            <select class="qty">
+              <option>0</option><option>1</option><option>2</option><option>3</option>
+              <option>4</option><option>5</option><option>6</option><option>7</option>
+              <option>8</option><option>9</option><option>10</option>
+            </select>
+          </label>
+          <div class="subtotal">小計: ¥0</div>
+        </div>
+      </div>
+    </div>
+    <!-- 商品カード2 -->
+    <div class="card item-row">
+      <img src="https://via.placeholder.com/300x160?text=商品B" alt="商品B">
+      <div class="card-body">
+        <div class="name">商品B</div>
+        <div class="price" data-price="450">単価: ¥450</div>
+        <div class="qty-row">
+          <label>数量:
+            <select class="qty">
+              <option>0</option><option>1</option><option>2</option><option>3</option>
+              <option>4</option><option>5</option><option>6</option><option>7</option>
+              <option>8</option><option>9</option><option>10</option>
+            </select>
+          </label>
+          <div class="subtotal">小計: ¥0</div>
+        </div>
+      </div>
+    </div>
+    <!-- 商品カード3 -->
+    <div class="card item-row">
+      <img src="https://via.placeholder.com/300x160?text=商品C" alt="商品C">
+      <div class="card-body">
+        <div class="name">商品C</div>
+        <div class="price" data-price="800">単価: ¥800</div>
+        <div class="qty-row">
+          <label>数量:
+            <select class="qty">
+              <option>0</option><option>1</option><option>2</option><option>3</option>
+              <option>4</option><option>5</option><option>6</option><option>7</option>
+              <option>8</option><option>9</option><option>10</option>
+            </select>
+          </label>
+          <div class="subtotal">小計: ¥0</div>
+        </div>
+      </div>
+    </div>
+    <!-- 商品カード1 -->
+    <div class="card item-row">
+      <img src="https://via.placeholder.com/300x160?text=商品A" alt="商品A">
+      <div class="card-body">
+        <div class="name">商品A</div>
+        <div class="price" data-price="1200">単価: ¥1,200</div>
+        <div class="qty-row">
+          <label>数量:
+            <select class="qty">
+              <option>0</option><option>1</option><option>2</option><option>3</option>
+              <option>4</option><option>5</option><option>6</option><option>7</option>
+              <option>8</option><option>9</option><option>10</option>
+            </select>
+          </label>
+          <div class="subtotal">小計: ¥0</div>
+        </div>
+      </div>
+    </div>
+    <!-- 商品カード2 -->
+    <div class="card item-row">
+      <img src="https://via.placeholder.com/300x160?text=商品B" alt="商品B">
+      <div class="card-body">
+        <div class="name">商品B</div>
+        <div class="price" data-price="450">単価: ¥450</div>
+        <div class="qty-row">
+          <label>数量:
+            <select class="qty">
+              <option>0</option><option>1</option><option>2</option><option>3</option>
+              <option>4</option><option>5</option><option>6</option><option>7</option>
+              <option>8</option><option>9</option><option>10</option>
+            </select>
+          </label>
+          <div class="subtotal">小計: ¥0</div>
+        </div>
+      </div>
+    </div>
+    <!-- 商品カード3 -->
+    <div class="card item-row">
+      <img src="https://via.placeholder.com/300x160?text=商品C" alt="商品C">
+      <div class="card-body">
+        <div class="name">商品C</div>
+        <div class="price" data-price="800">単価: ¥800</div>
+        <div class="qty-row">
+          <label>数量:
+            <select class="qty">
+              <option>0</option><option>1</option><option>2</option><option>3</option>
+              <option>4</option><option>5</option><option>6</option><option>7</option>
+              <option>8</option><option>9</option><option>10</option>
+            </select>
+          </label>
+          <div class="subtotal">小計: ¥0</div>
+        </div>
+      </div>
+    </div>
+    <!-- 商品カード1 -->
+    <div class="card item-row">
+      <img src="https://via.placeholder.com/300x160?text=商品A" alt="商品A">
+      <div class="card-body">
+        <div class="name">商品A</div>
+        <div class="price" data-price="1200">単価: ¥1,200</div>
+        <div class="qty-row">
+          <label>数量:
+            <select class="qty">
+              <option>0</option><option>1</option><option>2</option><option>3</option>
+              <option>4</option><option>5</option><option>6</option><option>7</option>
+              <option>8</option><option>9</option><option>10</option>
+            </select>
+          </label>
+          <div class="subtotal">小計: ¥0</div>
+        </div>
+      </div>
+    </div>
+    <!-- 商品カード2 -->
+    <div class="card item-row">
+      <img src="https://via.placeholder.com/300x160?text=商品B" alt="商品B">
+      <div class="card-body">
+        <div class="name">商品B</div>
+        <div class="price" data-price="450">単価: ¥450</div>
+        <div class="qty-row">
+          <label>数量:
+            <select class="qty">
+              <option>0</option><option>1</option><option>2</option><option>3</option>
+              <option>4</option><option>5</option><option>6</option><option>7</option>
+              <option>8</option><option>9</option><option>10</option>
+            </select>
+          </label>
+          <div class="subtotal">小計: ¥0</div>
+        </div>
+      </div>
+    </div>
+    <!-- 商品カード3 -->
+    <div class="card item-row">
+      <img src="https://via.placeholder.com/300x160?text=商品C" alt="商品C">
+      <div class="card-body">
+        <div class="name">商品C</div>
+        <div class="price" data-price="800">単価: ¥800</div>
+        <div class="qty-row">
+          <label>数量:
+            <select class="qty">
+              <option>0</option><option>1</option><option>2</option><option>3</option>
+              <option>4</option><option>5</option><option>6</option><option>7</option>
+              <option>8</option><option>9</option><option>10</option>
+            </select>
+          </label>
+          <div class="subtotal">小計: ¥0</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="total-box">
+    合計: <span id="grandTotal">¥0</span>
+  </div>
+
+  <script>
+    const fmt = new Intl.NumberFormat('ja-JP', { style: 'currency', currency: 'JPY' });
+
+    function recalcAll(){
+      let total = 0;
+      document.querySelectorAll('.item-row').forEach(row=>{
+        const qty = parseInt(row.querySelector('.qty').value,10) || 0;
+        const price = parseFloat(row.querySelector('.price').dataset.price);
+        const subtotal = qty * price;
+        row.querySelector('.subtotal').textContent = '小計: ' + fmt.format(subtotal);
+        total += subtotal;
+      });
+      document.getElementById('grandTotal').textContent = fmt.format(total);
+    }
+
+    // イベント登録
+    document.querySelectorAll('.qty').forEach(sel=>{
+      sel.addEventListener('change', recalcAll);
+    });
+
+    recalcAll();
+  </script>
+</body>
+</html>
