@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="utf-8" />
-  <title>商品購入ページ</title>
+  <title>ano日本武道館公演グッズラインナップ</title>
   <style>
     body {
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
@@ -42,9 +42,12 @@
     .name {
       font-weight: 600;
       font-size: 1.5rem;
+/*      white-space: nowrap; */
+      overflow: hidden;
+/*      text-overflow: ellipsis; */
     }
     .price {
-      font-size: 1.5rem;
+      font-size: 1.2rem;
       color: #475569;
     }
     .qty-row {
@@ -72,19 +75,193 @@
       text-align: right;
       font-weight: bold;
     }
+    
+    img.product-img {
+        display:block;
+        margin:auto;
+        max-width:200px;
+        max-height:200px;
+        object-fit: contain;
+        cursor:pointer;
+        transition:0.2s
+    }
+    img.product-img:hover{
+        opacity:0.8;transform:scale(1.05)
+    }
+    
+    /* モーダル */
+    .modal{display:none;position:fixed;z-index:1000;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,0.7);justify-content:center;align-items:center}
+    .modal img{max-width:90%;max-height:90%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,0.5)}
+
+  .title-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
   </style>
+  
 </head>
+
 <body>
-  <h1>商品一覧</h1>
-  <div class="products" id="products">
-    <!-- 商品カード1 -->
-    <div class="card item-row">
-      <img src="01.png" alt="商品A">
+    <header>
+        <img src="title.png" alt="タイトル画像" class="title-img" />
+    </header>
+    
+        <div class="products" id="products">
+            <!-- 商品カード1 -->
+            <div class="card item-row">
+                <img src="01.png" class="product-img">
+                <div class="card-body">
+                    <div class="name">呪幻Tシャツ</div>
+                    <div class="price" data-price="4000">単価: ¥4,000</div>
+                    <div class="qty-row">
+                        <label>数量
+                        <select class="qty">
+                        <option>0</option><option>1</option><option>2</option><option>3</option>
+                        <option>4</option><option>5</option><option>6</option><option>7</option>
+                        <option>8</option><option>9</option><option>10</option>
+                        </select>
+                        </label>
+                        <div class="subtotal"> ¥0</div>
+                    </div>
+                </div>
+            </div>
+            <!-- 商品カード2 -->
+            <div class="card item-row">
+                <img src="02.png" class="product-img">
+                <div class="card-body">
+                    <div class="name" alt="ニャンオェ武道館 Tシャツ">ニャンオェ武道館 Tシャツ</div>
+                    <div class="price" data-price="4000">単価: ¥4,000</div>
+                    <div class="qty-row">
+                        <label>数量
+                        <select class="qty">
+                        <option>0</option><option>1</option><option>2</option><option>3</option>
+                        <option>4</option><option>5</option><option>6</option><option>7</option>
+                        <option>8</option><option>9</option><option>10</option>
+                        </select>
+                        </label>
+                        <div class="subtotal"> ¥0</div>
+                    </div>
+                </div>
+            </div>
+            <!-- 商品カード3 -->
+            <div class="card item-row">
+                <img src="03.png" class="product-img">
+                <div class="card-body">
+                    <div class="name">デンマウ♥Tシャツ</div>
+                    <div class="price" data-price="4500">単価: ¥4,500</div>
+                    <div class="qty-row">
+                        <label>数量
+                            <select class="qty">
+                            <option>0</option><option>1</option><option>2</option><option>3</option>
+                            <option>4</option><option>5</option><option>6</option><option>7</option>
+                            <option>8</option><option>9</option><option>10</option>
+                            </select>
+                        </label>
+                        <div class="subtotal"> ¥0</div>
+                    </div>
+                </div>
+            </div>
+            <!-- 商品カード4 -->
+            <div class="card item-row">
+                <img src="04.png" class="product-img">
+                <div class="card-body">
+                    <div class="name">呪幻タオル</div>
+                    <div class="price" data-price="2500">単価: ¥2,500</div>
+                    <div class="qty-row">
+                        <label>数量
+                            <select class="qty">
+                            <option>0</option><option>1</option><option>2</option><option>3</option>
+                            <option>4</option><option>5</option><option>6</option><option>7</option>
+                            <option>8</option><option>9</option><option>10</option>
+                            </select>
+                        </label>
+                        <div class="subtotal"> ¥0</div>
+                    </div>
+                </div>
+            </div>
+            <!-- 商品カード5 -->
+            <div class="card item-row">
+                <img src="05.png" class="product-img">
+                <div class="card-body">
+                    <div class="name">あのちゃん御三家ダンシングタオル</div>
+                    <div class="price" data-price="2500">単価: ¥2,500</div>
+                    <div class="qty-row">
+                        <label>数量
+                            <select class="qty">
+                            <option>0</option><option>1</option><option>2</option><option>3</option>
+                            <option>4</option><option>5</option><option>6</option><option>7</option>
+                            <option>8</option><option>9</option><option>10</option>
+                            </select>
+                        </label>
+                        <div class="subtotal"> ¥0</div>
+                    </div>
+                </div>
+            </div>
+            <!-- 商品カード6 -->
+            <div class="card item-row">
+                <img src="06.png" class="product-img">
+                <div class="card-body">
+                    <div class="name">呪幻トート</div>
+                    <div class="price" data-price="2200">単価: 各¥2,200</div>
+                    <div class="qty-row">
+                        <label>数量
+                            <select class="qty">
+                            <option>0</option><option>1</option><option>2</option><option>3</option>
+                            <option>4</option><option>5</option><option>6</option><option>7</option>
+                            <option>8</option><option>9</option><option>10</option>
+                            </select>
+                        </label>
+                        <div class="subtotal"> ¥0</div>
+                    </div>
+                </div>
+            </div>
+            <!-- 商品カード7 -->
+            <div class="card item-row">
+                <img src="07.png" class="product-img">
+                <div class="card-body">
+                    <div class="name">呪幻ラババン</div>
+                    <div class="price" data-price="800">単価: ¥800</div>
+                    <div class="qty-row">
+                        <label>数量
+                            <select class="qty">
+                            <option>0</option><option>1</option><option>2</option><option>3</option>
+                            <option>4</option><option>5</option><option>6</option><option>7</option>
+                            <option>8</option><option>9</option><option>10</option>
+                            </select>
+                        </label>
+                        <div class="subtotal"> ¥0</div>
+                    </div>
+                </div>
+            </div>
+            <!-- 商品カード8 -->
+            <div class="card item-row">
+                <img src="08.png" class="product-img">
+                <div class="card-body">
+                    <div class="name">あのちゃん御三家クリアボトル</div>
+                    <div class="price" data-price="3500">単価: ¥3,500</div>
+                    <div class="qty-row">
+                        <label>数量
+                            <select class="qty">
+                            <option>0</option><option>1</option><option>2</option><option>3</option>
+                            <option>4</option><option>5</option><option>6</option><option>7</option>
+                            <option>8</option><option>9</option><option>10</option>
+                            </select>
+                        </label>
+                        <div class="subtotal"> ¥0</div>
+                    </div>
+                </div>
+            </div>
+            <!-- 商品カード9 -->
+            <div class="card item-row">
+      <img src="09.png" class="product-img">
       <div class="card-body">
-        <div class="name">商品A</div>
-        <div class="price" data-price="1200">単価: ¥1,200</div>
+        <div class="name">ニャンオェちゃんバニティポーチ</div>
+        <div class="price" data-price="3200">単価: ¥3,200</div>
         <div class="qty-row">
-          <label>数量:
+          <label>数量
             <select class="qty">
               <option>0</option><option>1</option><option>2</option><option>3</option>
               <option>4</option><option>5</option><option>6</option><option>7</option>
@@ -95,14 +272,14 @@
         </div>
       </div>
     </div>
-    <!-- 商品カード2 -->
+            <!-- 商品カード10 -->
     <div class="card item-row">
-      <img src="02.png" alt="商品B">
+      <img src="10.png" class="product-img">
       <div class="card-body">
-        <div class="name">商品B</div>
-        <div class="price" data-price="450">単価: ¥450</div>
+        <div class="name">あのちゃんとお揃いピックセット</div>
+        <div class="price" data-price="1800">単価: ¥1,800</div>
         <div class="qty-row">
-          <label>数量:
+          <label>数量
             <select class="qty">
               <option>0</option><option>1</option><option>2</option><option>3</option>
               <option>4</option><option>5</option><option>6</option><option>7</option>
@@ -113,158 +290,15 @@
         </div>
       </div>
     </div>
-    <!-- 商品カード3 -->
-    <div class="card item-row">
-      <img src="03.png" alt="商品C">
-      <div class="card-body">
-        <div class="name">商品C</div>
-        <div class="price" data-price="800">単価: ¥800</div>
-        <div class="qty-row">
-          <label>数量:
-            <select class="qty">
-              <option>0</option><option>1</option><option>2</option><option>3</option>
-              <option>4</option><option>5</option><option>6</option><option>7</option>
-              <option>8</option><option>9</option><option>10</option>
-            </select>
-          </label>
-          <div class="subtotal"> ¥0</div>
-        </div>
-      </div>
-    </div>
-    <!-- 商品カード4 -->
-    <div class="card item-row">
-      <img src="04.png" alt="商品A">
-      <div class="card-body">
-        <div class="name">商品A</div>
-        <div class="price" data-price="1200">単価: ¥1,200</div>
-        <div class="qty-row">
-          <label>数量:
-            <select class="qty">
-              <option>0</option><option>1</option><option>2</option><option>3</option>
-              <option>4</option><option>5</option><option>6</option><option>7</option>
-              <option>8</option><option>9</option><option>10</option>
-            </select>
-          </label>
-          <div class="subtotal"> ¥0</div>
-        </div>
-      </div>
-    </div>
-    <!-- 商品カード5 -->
-    <div class="card item-row">
-      <img src="05.png" alt="商品B">
-      <div class="card-body">
-        <div class="name">商品B</div>
-        <div class="price" data-price="450">単価: ¥450</div>
-        <div class="qty-row">
-          <label>数量:
-            <select class="qty">
-              <option>0</option><option>1</option><option>2</option><option>3</option>
-              <option>4</option><option>5</option><option>6</option><option>7</option>
-              <option>8</option><option>9</option><option>10</option>
-            </select>
-          </label>
-          <div class="subtotal"> ¥0</div>
-        </div>
-      </div>
-    </div>
-    <!-- 商品カード6 -->
-    <div class="card item-row">
-      <img src="06.png" alt="商品C">
-      <div class="card-body">
-        <div class="name">商品C</div>
-        <div class="price" data-price="800">単価: ¥800</div>
-        <div class="qty-row">
-          <label>数量:
-            <select class="qty">
-              <option>0</option><option>1</option><option>2</option><option>3</option>
-              <option>4</option><option>5</option><option>6</option><option>7</option>
-              <option>8</option><option>9</option><option>10</option>
-            </select>
-          </label>
-          <div class="subtotal"> ¥0</div>
-        </div>
-      </div>
-    </div>
-    <!-- 商品カード7 -->
-    <div class="card item-row">
-      <img src="07.png" alt="商品A">
-      <div class="card-body">
-        <div class="name">商品A</div>
-        <div class="price" data-price="1200">単価: ¥1,200</div>
-        <div class="qty-row">
-          <label>数量:
-            <select class="qty">
-              <option>0</option><option>1</option><option>2</option><option>3</option>
-              <option>4</option><option>5</option><option>6</option><option>7</option>
-              <option>8</option><option>9</option><option>10</option>
-            </select>
-          </label>
-          <div class="subtotal"> ¥0</div>
-        </div>
-      </div>
-    </div>
-    <!-- 商品カード8 -->
-    <div class="card item-row">
-      <img src="08.png" alt="商品B">
-      <div class="card-body">
-        <div class="name">商品B</div>
-        <div class="price" data-price="450">単価: ¥450</div>
-        <div class="qty-row">
-          <label>数量:
-            <select class="qty">
-              <option>0</option><option>1</option><option>2</option><option>3</option>
-              <option>4</option><option>5</option><option>6</option><option>7</option>
-              <option>8</option><option>9</option><option>10</option>
-            </select>
-          </label>
-          <div class="subtotal"> ¥0</div>
-        </div>
-      </div>
-    </div>
-    <!-- 商品カード9 -->
-    <div class="card item-row">
-      <img src="09.png" alt="商品C">
-      <div class="card-body">
-        <div class="name">商品C</div>
-        <div class="price" data-price="800">単価: ¥800</div>
-        <div class="qty-row">
-          <label>数量:
-            <select class="qty">
-              <option>0</option><option>1</option><option>2</option><option>3</option>
-              <option>4</option><option>5</option><option>6</option><option>7</option>
-              <option>8</option><option>9</option><option>10</option>
-            </select>
-          </label>
-          <div class="subtotal"> ¥0</div>
-        </div>
-      </div>
-    </div>
-    <!-- 商品カード10 -->
-    <div class="card item-row">
-      <img src="10.png" alt="商品A">
-      <div class="card-body">
-        <div class="name">商品A</div>
-        <div class="price" data-price="1200">単価: ¥1,200</div>
-        <div class="qty-row">
-          <label>数量:
-            <select class="qty">
-              <option>0</option><option>1</option><option>2</option><option>3</option>
-              <option>4</option><option>5</option><option>6</option><option>7</option>
-              <option>8</option><option>9</option><option>10</option>
-            </select>
-          </label>
-          <div class="subtotal"> ¥0</div>
-        </div>
-      </div>
-    </div>
+
     <!-- 商品カード11 -->
     <div class="card item-row">
-      <img src="11.png" alt="商品B">
+      <img src="11.png" class="product-img">
       <div class="card-body">
-        <div class="name">商品B</div>
-        <div class="price" data-price="450">単価: ¥450</div>
+        <div class="name">全部大丈夫になるお守り</div>
+        <div class="price" data-price="1000">単価: ¥1,000</div>
         <div class="qty-row">
-          <label>数量:
+          <label>数量
             <select class="qty">
               <option>0</option><option>1</option><option>2</option><option>3</option>
               <option>4</option><option>5</option><option>6</option><option>7</option>
@@ -275,14 +309,15 @@
         </div>
       </div>
     </div>
+
     <!-- 商品カード12 -->
     <div class="card item-row">
-      <img src="12.png" alt="商品C">
+      <img src="12.png" class="product-img">
       <div class="card-body">
-        <div class="name">商品C</div>
-        <div class="price" data-price="800">単価: ¥800</div>
+        <div class="name">偏愛ライター</div>
+        <div class="price" data-price="600">単価: 各¥600</div>
         <div class="qty-row">
-          <label>数量:
+          <label>数量
             <select class="qty">
               <option>0</option><option>1</option><option>2</option><option>3</option>
               <option>4</option><option>5</option><option>6</option><option>7</option>
@@ -293,14 +328,15 @@
         </div>
       </div>
     </div>
+
     <!-- 商品カード13 -->
     <div class="card item-row">
-      <img src="13.png" alt="商品A">
+      <img src="13.png" class="product-img">
       <div class="card-body">
-        <div class="name">商品A</div>
-        <div class="price" data-price="1200">単価: ¥1,200</div>
+        <div class="name">呪幻ランダムキーホルダー（全6種）</div>
+        <div class="price" data-price="1000">単価: 1回¥1,000</div>
         <div class="qty-row">
-          <label>数量:
+          <label>数量
             <select class="qty">
               <option>0</option><option>1</option><option>2</option><option>3</option>
               <option>4</option><option>5</option><option>6</option><option>7</option>
@@ -311,14 +347,15 @@
         </div>
       </div>
     </div>
+
     <!-- 商品カード14 -->
     <div class="card item-row">
-      <img src="14.png" alt="商品B">
+      <img src="14.png" class="product-img">
       <div class="card-body">
-        <div class="name">商品B</div>
-        <div class="price" data-price="450">単価: ¥450</div>
+        <div class="name">ニャンオェ着せ替え（パジャマver.）</div>
+        <div class="price" data-price="2200">単価: ¥2,200</div>
         <div class="qty-row">
-          <label>数量:
+          <label>数量
             <select class="qty">
               <option>0</option><option>1</option><option>2</option><option>3</option>
               <option>4</option><option>5</option><option>6</option><option>7</option>
@@ -329,14 +366,15 @@
         </div>
       </div>
     </div>
+
     <!-- 商品カード15 -->
     <div class="card item-row">
-      <img src="15.png" alt="商品C">
+      <img src="15.png" class="product-img">
       <div class="card-body">
-        <div class="name">商品C</div>
-        <div class="price" data-price="800">単価: ¥800</div>
+        <div class="name">公演パンフレット</div>
+        <div class="price" data-price="2000">単価: ¥2,000</div>
         <div class="qty-row">
-          <label>数量:
+          <label>数量
             <select class="qty">
               <option>0</option><option>1</option><option>2</option><option>3</option>
               <option>4</option><option>5</option><option>6</option><option>7</option>
@@ -347,14 +385,15 @@
         </div>
       </div>
     </div>
+
     <!-- 商品カード16 -->
     <div class="card item-row">
-      <img src="16.png" alt="商品A">
+      <img src="16.png" class="product-img">
       <div class="card-body">
-        <div class="name">商品A</div>
-        <div class="price" data-price="1200">単価: ¥1,200</div>
+        <div class="name">BE@RBRICK</div>
+        <div class="price" data-price="2800">単価: 各¥2,800</div>
         <div class="qty-row">
-          <label>数量:
+          <label>数量
             <select class="qty">
               <option>0</option><option>1</option><option>2</option><option>3</option>
               <option>4</option><option>5</option><option>6</option><option>7</option>
@@ -365,32 +404,15 @@
         </div>
       </div>
     </div>
+
     <!-- 商品カード17 -->
     <div class="card item-row">
-      <img src="17.png" alt="商品B">
+      <img src="17.png" class="product-img">
       <div class="card-body">
-        <div class="name">商品B</div>
-        <div class="price" data-price="450">単価: ¥450</div>
+        <div class="name">VAGA GOGO あのちゃん(ランダム全5種)</div>
+        <div class="price" data-price="1000">単価: 1回¥1,000</div>
         <div class="qty-row">
-          <label>数量:
-            <select class="qty">
-              <option>0</option><option>1</option><option>2</option><option>3</option>
-              <option>4</option><option>5</option><option>6</option><option>7</option>
-              <option>8</option><option>9</option><option>10</option>
-            </select>
-          </label>
-          <div class="subtotal"> ¥0</div>
-        </div>
-      </div>
-    </div>
-    <!-- 商品カード18 -->
-    <div class="card item-row">
-      <img src="18.png" alt="商品C">
-      <div class="card-body">
-        <div class="name">商品C</div>
-        <div class="price" data-price="800">単価: ¥800</div>
-        <div class="qty-row">
-          <label>数量:
+          <label>数量
             <select class="qty">
               <option>0</option><option>1</option><option>2</option><option>3</option>
               <option>4</option><option>5</option><option>6</option><option>7</option>
@@ -402,10 +424,36 @@
       </div>
     </div>
 
-  <div class="total-box">
-    合計: <span id="grandTotal">¥0</span>
+            <!-- 商品カード18 -->
+            <div class="card item-row">
+                <img src="18.png" class="product-img">
+                <div class="card-body">
+                    <div class="name">CD</div>
+                    <div class="price" data-price="1650">単価: ¥1,650</div>
+                    <div class="qty-row">
+                        <label>数量
+                        <select class="qty">
+                        <option>0</option><option>1</option><option>2</option><option>3</option>
+                        <option>4</option><option>5</option><option>6</option><option>7</option>
+                        <option>8</option><option>9</option><option>10</option>
+                        </select>
+                        </label>
+                        <div class="subtotal"> ¥0</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="total-box">
+                合計: <span id="grandTotal">¥0</span>
+            </div>
+        </div>
+    </div>
+
+<!-- モーダル本体 -->
+  <div id="imgModal" class="modal">
+    <img id="modalImg" src="" alt="">
   </div>
-
+  
   <script>
     const fmt = new Intl.NumberFormat('ja-JP', { style: 'currency', currency: 'JPY' });
 
@@ -427,6 +475,21 @@
     });
 
     recalcAll();
+    
+        // 画像クリックで拡大
+    const modal = document.getElementById("imgModal");
+    const modalImg = document.getElementById("modalImg");
+    document.querySelectorAll(".product-img").forEach(img=>{
+      img.addEventListener("click", ()=>{
+        modal.style.display = "flex";
+        modalImg.src = img.src;
+      });
+    });
+    // モーダル背景クリックで閉じる
+    modal.addEventListener("click", ()=>{
+      modal.style.display = "none";
+    });
+    
   </script>
 </body>
 </html>
